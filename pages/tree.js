@@ -1,14 +1,26 @@
 
+import { Component } from "react";
 import Navigation from "../components/navBar"
-export default function tree(){
-    return(
-        <>
-            <Navigation title = "WAT" />
-            <h1>Welcome to the musical octo palm tree</h1>
+import PalmTree from "../components/palmTree"
+export default class tree extends Component {
 
-            <p> why a palm tree?</p>
+    componentDidMount() {
+        const tree = new PalmTree(200, 300);
+        tree.draw("svg")
+    }
 
+    render() {
 
-        </>
-    )
+        return (
+            <>
+                <Navigation title="WAT" />
+
+                <h1>Welcome to the musical octo palm tree</h1>
+                <div id="svg">
+
+                </div>
+                <p> why a palm tree?</p>
+            </>
+        )
+    }
 }
